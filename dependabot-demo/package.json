@@ -1,9 +1,7 @@
 {
   "name": "dependabot-demo",
   "version": "1.0.0",
-  "description": "Demo project for vulnerability scanning",
-  "main": "index.js",
   "dependencies": {
-    "lodash": "4.17.19"
+    "minimist": "0.0.8"
   }
 }
