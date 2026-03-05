@@ -1,12 +1,1 @@
-{
-  "name": "vulnerable-node-project",
-  "version": "1.0.0",
-  "description": "Minimal Node.js project with vulnerable dependency",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "lodash": "4.17.4"
-  }
-}
+{\n  \"name\": \"your-package-name\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": {\n    \"lodash\": \"4.17.4\",\n    \"minimist\": \"0.2.0\",\n    \"express\": \"4.16.0\",\n    \"other-vulnerable-package\": \"1.0.0\"\n  }\n}
