@@ -1,3 +1,11 @@
-{"name": "group6-security-dependencies", "version": "1.0.0", "description": "A project to demonstrate security vulnerabilities.", "dependencies": {
-  "ejs": ">=3.1.10"
-}}
+{
+  "name": "group6-security-demo",
+  "version": "1.0.0",
+  "description": "Demo repository to show vulnerable dependencies",
+  "dependencies": {
+    "jquery": "1.11.3",
+    "underscore": "1.8.3",
+    "debug": "2.2.0",
+    "ejs": "2.3.4"
+  }
+}
