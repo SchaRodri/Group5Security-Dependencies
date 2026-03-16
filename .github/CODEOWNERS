@@ -1,0 +1,11 @@
+# Default reviewer for the entire repository
+* @DeanRothStudHSLU
+
+# Frontend code Example
+/frontend/ @Mohammad-Mobeen-Saleh
+
+# Backend code Example
+/backend/ @DeanRothStudHSLU
+
+# GitHub workflows Example
+/.github/ @SchaRodri
