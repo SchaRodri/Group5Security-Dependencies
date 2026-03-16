@@ -5,12 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '0 3 * * 1'
 
 permissions:
   contents: read
   security-events: write
+  actions: read
 
 jobs:
 
@@ -24,23 +23,12 @@ jobs:
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  dependency-review:
-    name: Dependency Review
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check dependencies
-        uses: actions/dependency-review-action@v4
-
-  codeql:
+  codeql-analysis:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        language: [javascript]
 
     steps:
       - name: Checkout repository
@@ -49,10 +37,10 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
+          languages: javascript
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
 
-      - name: Perform CodeQL analysis
+      - name: Run CodeQL analysis
         uses: github/codeql-action/analyze@v3
