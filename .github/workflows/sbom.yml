@@ -7,15 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-sbom:
+  sbom:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate SBOM with CycloneDX
-        uses: CycloneDX/gh-action-generate-sbom@v1
+      - name: Install Syft
+        run: |
+          sudo curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          syft . -o cyclonedx-json > bom.json
 
       - name: Upload SBOM artifact
         uses: actions/upload-artifact@v4
