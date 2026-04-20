@@ -5,7 +5,7 @@
 Please do not report security vulnerabilities publicly.
 
 If you discover a security issue, please report it privately via email:
-Mohammadmobeen.saleh@stud.hslu.ch
+rodrigo.schacher@stud.hslu.ch
 
 Please include the following information in your report:
 - a short description of the issue
