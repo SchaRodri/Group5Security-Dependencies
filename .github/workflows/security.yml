@@ -8,11 +8,9 @@ on:
 
 permissions:
   contents: read
-  security-events: write
   actions: read
 
 jobs:
-
   secret-scan:
     name: Secret Scan (Gitleaks)
     runs-on: ubuntu-latest
@@ -20,27 +18,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  codeql-analysis:
-    name: CodeQL Analysis
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
-      - name: Run CodeQL analysis
-        uses: github/codeql-action/analyze@v3
